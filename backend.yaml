@@ -42,7 +42,12 @@
     ansible.builtin.copy: 
       src: /home/ec2-user/ansible-expense/backend.service
       dest: /etc/systemd/system/backend.service  
-      
+
+  - name: install PyMySQL
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      executable: pip3.9      
 
   - name: import mysql data
     community.mysql.mysql_db:
