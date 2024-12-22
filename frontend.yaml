@@ -22,10 +22,10 @@
       path: /usr/share/nginx/html
       state: directory    
 
-  - name: Download foo.conf
+  - name: Download code
     ansible.builtin.get_url:
       url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest: /tmp/backend.zip
+      dest: /tmp/frontend.zip
     
   - name: Extract foo.tgz into /var/lib/foo
     ansible.builtin.unarchive:
