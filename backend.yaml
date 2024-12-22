@@ -10,7 +10,9 @@
 
   - name: install nodejs
     ansible.builtin.package: 
-      name: nodejs
+      name: "{{ item }}""
+      - nodejs
+      - mysql
       state: present
 
   - name: create a expense user
