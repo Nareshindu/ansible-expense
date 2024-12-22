@@ -40,7 +40,7 @@
 
   - name: copy service to dest
     ansible.builtin.copy: 
-      src: backend.servcie
+      src: backend.service
       dest: etc/systemd/system/backend.servcie
       remote_src: yes
 
