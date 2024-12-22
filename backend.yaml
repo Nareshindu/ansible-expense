@@ -32,3 +32,23 @@
       src: /tmp/backend.zip
       dest: /app    
       remote_src: yes
+
+  - name: install npm
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app    
+
+  - name: copy service to dest
+    ansible.builtin.copy: 
+      src: backend.servcie
+      dest: etc/systemd/system/backend.servcie
+      remote_src: yes
+
+  - name: import mysql data
+    community.mysql.mysql_db:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.nareshtransportservices.online
+      target: /app/schema/backend.service
+      name: all
+      state: import
