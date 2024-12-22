@@ -40,8 +40,8 @@
 
   - name: copy service to dest
     ansible.builtin.copy: 
-      src: backend.service
-      dest: etc/systemd/system/backend.servcie
+      src: /home/ec2-user/ansible-expense/backend.service
+      dest: /etc/systemd/system/backend.servcie
       remote_src: yes
 
   - name: import mysql data
